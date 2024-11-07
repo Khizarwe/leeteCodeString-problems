@@ -14,7 +14,6 @@ var longestCommonPrefix = function (strs) {
     }
     return prefix;
 };
-console.log(longestCommonPrefix(["flower", "flow", "flight"]))
 
 
 
@@ -39,7 +38,6 @@ var isValid = function (s) {
     }
     return stack.length === 0;
 };
-console.log(isValid(")"))
 
 
 // 28. Find the Index of the First Occurrence in a String
@@ -54,17 +52,34 @@ var strStr = function (haystack, needle) {
 
 };
 
-console.log(strStr("leetcode", "leeto"))
 
 
 //58. length of last word
 var lengthOfLastWord = function (s) {
     return s.trim().split(" ").pop().length;
 };
-console.log(lengthOfLastWord("Hello World"))
 
 // 67 add binary 
-var addBinary = function(a, b) {
-return (BigInt(`0b${a}`) + BigInt(`0b${b}`)).toString(2)
+var addBinary = function (a, b) {
+    return (BigInt(`0b${a}`) + BigInt(`0b${b}`)).toString(2)
 }
-console.log(addBinary("11","1"))
+
+//168. Excel Sheet Column Title
+var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var result = ""
+var convertToTitle = function (columnNumber) {
+    const helper = function (number, result) {
+        let charIndex = (number - 1) % alphabet.length;
+        let quotient = Math.floor((number - 1) / alphabet.length)
+        result = alphabet.charAt(charIndex) + result;
+        if (quotient >= 1) {
+            return helper(quotient, result);
+        }
+        else {
+            return result
+        }
+    }
+    return helper(columnNumber, "");
+
+};
+
