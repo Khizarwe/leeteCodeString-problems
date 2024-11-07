@@ -1,20 +1,20 @@
 // 14. find the longest prefixes
-var longestCommonPrefix = function(strs) {
+var longestCommonPrefix = function (strs) {
     if (strs.length === 0) return "";
     let prefix = strs[0];
     console.log(prefix)
-  for(let i = 0; i< strs.length; i++){
-    const currentString = strs[i];
-    while (!currentString.startsWith(prefix)) {
-        console.log(currentString,"from inside")
-        prefix = prefix.slice(0, -1); // Remove the last character
-        console.log(prefix)
-        if (prefix === "") return ""; // If prefix is empty, return ""
+    for (let i = 0; i < strs.length; i++) {
+        const currentString = strs[i];
+        while (!currentString.startsWith(prefix)) {
+            console.log(currentString, "from inside")
+            prefix = prefix.slice(0, -1); // Remove the last character
+            console.log(prefix)
+            if (prefix === "") return ""; // If prefix is empty, return ""
+        }
     }
-  }
-  return prefix;
+    return prefix;
 };
-console.log(longestCommonPrefix(["flower","flow","flight"]))
+console.log(longestCommonPrefix(["flower", "flow", "flight"]))
 
 
 
@@ -46,7 +46,7 @@ console.log(isValid(")"))
 var strStr = function (haystack, needle) {
     if (needle === "") return 0;
     for (let i = 0; i < haystack.length - needle.length; i++) {
-        if (haystack.substring(0, needle.length) === needle) {
+        if (haystack.substring(i, i + needle.length) === needle) {
             return i;
         }
     }
@@ -58,7 +58,7 @@ console.log(strStr("leetcode", "leeto"))
 
 
 //58. length of last word
-var lengthOfLastWord = function(s) {
-    return s.trim().split(" ").pop().length;    
+var lengthOfLastWord = function (s) {
+    return s.trim().split(" ").pop().length;
 };
 console.log(lengthOfLastWord("Hello World"))
