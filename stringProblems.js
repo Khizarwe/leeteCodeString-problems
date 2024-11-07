@@ -65,9 +65,8 @@ var addBinary = function (a, b) {
 }
 
 //168. Excel Sheet Column Title
-var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var convertToTitle = function (columnNumber) {
-    const helper = function (number, result) {
+    const helper = function (number, result,alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ") {
         let charIndex = (number - 1) % alphabet.length;
         let quotient = Math.floor((number - 1) / alphabet.length)
         result = alphabet.charAt(charIndex) + result;
@@ -81,4 +80,4 @@ var convertToTitle = function (columnNumber) {
     return helper(columnNumber, "");
 
 };
-
+console.log(convertToTitle(28))
