@@ -62,3 +62,9 @@ var lengthOfLastWord = function (s) {
     return s.trim().split(" ").pop().length;
 };
 console.log(lengthOfLastWord("Hello World"))
+
+// 67 add binary 
+var addBinary = function(a, b) {
+return (BigInt(`0b${a}`) + BigInt(`0b${b}`)).toString(2)
+}
+console.log(addBinary("11","1"))
