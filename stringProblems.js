@@ -66,7 +66,6 @@ var addBinary = function (a, b) {
 
 //168. Excel Sheet Column Title
 var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var result = ""
 var convertToTitle = function (columnNumber) {
     const helper = function (number, result) {
         let charIndex = (number - 1) % alphabet.length;
