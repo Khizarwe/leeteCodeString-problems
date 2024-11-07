@@ -15,3 +15,28 @@ var longestCommonPrefix = function(strs) {
   return prefix;
 };
 console.log(longestCommonPrefix(["flower","flow","flight"]))
+
+
+
+// 20 valid parantheses
+var isValid = function (s) {
+    if (s.length === 0) return true;
+    let stack = []
+    const map = {
+        '(': ')',
+        '{': '}',
+        '[': ']'
+    };
+    for (let char of s) {
+        if (map[char]) {
+            stack.push(map[char])
+        }
+        else {
+            if (stack.pop() !== char) {
+                return false;
+            }
+        }
+    }
+    return stack.length === 0;
+};
+console.log(isValid(")"))
