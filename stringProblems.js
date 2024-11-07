@@ -2,13 +2,10 @@
 var longestCommonPrefix = function (strs) {
     if (strs.length === 0) return "";
     let prefix = strs[0];
-    console.log(prefix)
     for (let i = 0; i < strs.length; i++) {
         const currentString = strs[i];
         while (!currentString.startsWith(prefix)) {
-            console.log(currentString, "from inside")
             prefix = prefix.slice(0, -1); // Remove the last character
-            console.log(prefix)
             if (prefix === "") return ""; // If prefix is empty, return ""
         }
     }
@@ -66,7 +63,7 @@ var addBinary = function (a, b) {
 
 //168. Excel Sheet Column Title
 var convertToTitle = function (columnNumber) {
-    const helper = function (number, result,alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ") {
+    const helper = function (number, result, alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ") {
         let charIndex = (number - 1) % alphabet.length;
         let quotient = Math.floor((number - 1) / alphabet.length)
         result = alphabet.charAt(charIndex) + result;
@@ -80,4 +77,14 @@ var convertToTitle = function (columnNumber) {
     return helper(columnNumber, "");
 
 };
-console.log(convertToTitle(28))
+
+// Excel Sheet Column Number
+var titleToNumber = function (columnTitle) {
+    let result = 0 
+    for (let i = 0; i < columnTitle.length; i++) {
+        charValue = columnTitle.charCodeAt(i) - 'A'.charCodeAt(0) + 1;
+        result = result * 26 + charValue;
+    }
+    return result
+}
+
