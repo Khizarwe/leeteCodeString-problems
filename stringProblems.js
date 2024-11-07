@@ -40,3 +40,18 @@ var isValid = function (s) {
     return stack.length === 0;
 };
 console.log(isValid(")"))
+
+
+// 28. Find the Index of the First Occurrence in a String
+var strStr = function (haystack, needle) {
+    if (needle === "") return 0;
+    for (let i = 0; i < haystack.length - needle.length; i++) {
+        if (haystack.substring(0, needle.length) === needle) {
+            return i;
+        }
+    }
+    return -1
+
+};
+
+console.log(strStr("leetcode", "leeto"))
