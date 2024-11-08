@@ -80,7 +80,7 @@ var convertToTitle = function (columnNumber) {
 
 //171 Excel Sheet Column Number
 var titleToNumber = function (columnTitle) {
-    let result = 0 
+    let result = 0
     for (let i = 0; i < columnTitle.length; i++) {
         charValue = columnTitle.charCodeAt(i) - 'A'.charCodeAt(0) + 1;
         result = result * 26 + charValue;
@@ -90,24 +90,24 @@ var titleToNumber = function (columnTitle) {
 
 //205. Isomorphic Strings
 //solution 1
-var isIsomorphic = function(s, t) {
-    const  hash_One = {}
-    const  hash_Two = {}
-     for(let i = 0; i < s.length;i++){
-         if(!(s[i] in hash_One)){
-             hash_One[s[i]] = i
-         }
-         if(!(t[i] in hash_Two)){
-             hash_Two[t[i]] = i
-         }
-         if(hash_One[s[i]] !== hash_Two[t[i]]){
-             return false
-         }
-     }
-     return true
- };
+var isIsomorphic = function (s, t) {
+    const hash_One = {}
+    const hash_Two = {}
+    for (let i = 0; i < s.length; i++) {
+        if (!(s[i] in hash_One)) {
+            hash_One[s[i]] = i
+        }
+        if (!(t[i] in hash_Two)) {
+            hash_Two[t[i]] = i
+        }
+        if (hash_One[s[i]] !== hash_Two[t[i]]) {
+            return false
+        }
+    }
+    return true
+};
 //  solution 2
-var isIsomorphic = function(s, t) {
+var isIsomorphic = function (s, t) {
     const hash_One = {};
     const hash_Two = {};
     for (let i = 0; i < s.length; i++) {
@@ -130,4 +130,23 @@ var isIsomorphic = function(s, t) {
 };
 
 
-console.log(isIsomorphic("egg","add"))
+//242 valid anagram
+var isAnagram = function (s, t) {
+    if (s.length !== t.length) return false
+    const hash = {}
+    for (let i = 0; i < s.length; i++) {
+        hash[s[i]] = (hash[s[i]] || 0) + 1;
+    }
+    for (let i = 0; i < t.length; i++) {
+        if (!hash[t[i]]) {
+            return false
+        }
+        hash[t[i]] -= 1
+    }
+    for (let key in hash) {
+        if (hash[key] !== 0) {
+            return false
+        }
+    }
+    return hash
+};
