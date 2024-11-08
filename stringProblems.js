@@ -88,3 +88,46 @@ var titleToNumber = function (columnTitle) {
     return result
 }
 
+//205. Isomorphic Strings
+//solution 1
+var isIsomorphic = function(s, t) {
+    const  hash_One = {}
+    const  hash_Two = {}
+     for(let i = 0; i < s.length;i++){
+         if(!(s[i] in hash_One)){
+             hash_One[s[i]] = i
+         }
+         if(!(t[i] in hash_Two)){
+             hash_Two[t[i]] = i
+         }
+         if(hash_One[s[i]] !== hash_Two[t[i]]){
+             return false
+         }
+     }
+     return true
+ };
+//  solution 2
+var isIsomorphic = function(s, t) {
+    const hash_One = {};
+    const hash_Two = {};
+    for (let i = 0; i < s.length; i++) {
+        if (hash_One[s[i]] !== undefined) {
+            if (hash_One[s[i]] !== t[i]) {
+                return false;
+            }
+        } else {
+            hash_One[s[i]] = t[i];
+        }
+        if (hash_Two[t[i]] !== undefined) {
+            if (hash_Two[t[i]] !== s[i]) {
+                return false;
+            }
+        } else {
+            hash_Two[t[i]] = s[i];
+        }
+    }
+    return true;
+};
+
+
+console.log(isIsomorphic("egg","add"))
