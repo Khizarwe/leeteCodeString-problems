@@ -152,19 +152,19 @@ var isAnagram = function (s, t) {
 };
 
 // 243 shortest distance 
-var shortestDistance = function(words, word1, word2) {
+var shortestDistance = function (words, word1, word2) {
     let index1 = -1
     let index2 = -1
     let minDist = Infinity
-    for(let i = 0; i< words.length; i++ ){
-        if(words[i] === word1 ){
-            index1= i
+    for (let i = 0; i < words.length; i++) {
+        if (words[i] === word1) {
+            index1 = i
             if (index2 !== -1) {
                 minDist = Math.min(minDist, Math.abs(index1 - index2));
             }
         }
-        if(words[i] === word2 ){
-            index2= i
+        if (words[i] === word2) {
+            index2 = i
             if (index1 !== -1) {
                 minDist = Math.min(minDist, Math.abs(index1 - index2));
             }
@@ -173,4 +173,25 @@ var shortestDistance = function(words, word1, word2) {
     }
     return minDist
 };
-console.log(shortestDistance(["practice", "makes", "perfect", "coding", "makes"],"makes","coding"))
+
+// strobogrammatic number
+var isStrobogrammatic = function (str) {
+    const map = {
+        '0': '0',
+        '1': '1',
+        '6': '9',
+        '8': '8',
+        '9': '6'
+    };
+    let left = 0
+    let right = str.length - 1
+    while( left <= right){
+        if(map[str[left]] !== str[right]){
+            return false
+        }
+        left++
+        right--
+    }
+    return true
+}
+console.log(isStrobogrammatic("962"))
